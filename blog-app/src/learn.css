@@ -1,0 +1,117 @@
+
+Pseudoselector
+
+e.g.
+1) :hover
+2) :only-child
+3) :first-child
+4) :last-child 
+5) :nth-child(n)
+
+Advance seelector
+
+- Basic selector
+i) Adjacent sibling element (goes directly one after another)
+h2 + a {
+    color: red;
+}
+ii) General sibling selector (Have to share the same parent)
+textarea ~ button {
+    /* every button that is after textarea but have the same parent */
+    color: purple;
+}
+iii) Child selector     
+ul > li {
+    /* every single li in the ul */
+}
+iv) Descendant selector
+
+ul li {
+    /* Any li that goes up to an ul */
+}
+
+- Attribute selector 
+
+element[attr=value]
+e.g. 
+h2[class=subtitle] { /*dont need quotation mark*/
+    color:blue;
+}
+
+img[src=""]{
+
+}
+
+/* image in the same folder */
+img[src^="../img/"]
+/* The source have to end with exactly this */
+img[src$="../img/"]
+/* Contains, kinda similar to MySQL's like */
+img[src*="../img/"]
+
+/* You can have multiple classes in one element */
+/* Tilde finds classes that are separated by whitespace */
+h2[class~=article-subtitle] {
+    background-color: green;
+}
+
+h2[class|=article-subtitle]{ }
+
+
+# CSS GENERAL RULE!
+
+# Coloring technique
+1) Hierachy 
+- The top should be darker, the subtitles and stuff should be lighter
+{ outline: 1px dotted red }
+
+# Gradients
+
+color: linear-gradient(to top/right/left/bottom, red, blue, ...);
+angle: 215deg, 145deg, -90deg
+
+color: radial-gradient(red, blue)
+
+# Absolute and relative values 
+
+relative values are good for responsive design
+
+- cm, mm, ...
+- pt, px, pc
+- %, em, vw, vh (can be more than 100)
+
+/*FLEXBOX!!!!*/
+
+/*text manipulation*/
+
+text-decoration: underline, none, outline, overline
+text-transform: uppercase, capitalize, lowercase
+text-align: left, right, center, justify
+
+/*font manipulation*/
+font-size
+font-weight : (600 is common)
+fontn-style : italic, oblique
+font-families: serif -> times new roman, georgia, sans serif -> arial, calibri? , monospace -> courier new,  
+font-family: "Times New Roman", serif, # if TNR is available, use it else use the standard of serif font  
+# serif is hard to read on computer
+# sans serif is better, usually news web uses sans serif font -> easy to :read 
+# monospace all char uses same space
+/*external font*/
+/* 
+<link href="https://fonts.googleapis.com/css2?family=Luxurious+Roman&display=swap" rel="stylesheet"> */
+font-family: 'Luxurious Roman', cursive;
+
+/*Short hand*/
+border: size style color;
+padding: 20px; 20px to all 4 sides
+padding: top right bottom left;
+margin: top-bottom left-right; 
+padding: 100px 40px 5px 0; 
+margin: 80px 40px;
+
+/*Floats & Display*/
+float: right;
+
+display: none;
+display: inline, block;
