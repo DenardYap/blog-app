@@ -1,7 +1,18 @@
 const express = require("express");
 const router = express.Router();
-const posts = require("../db");
 const path = require("path");
+const { read_, insert_, delete_ } = require("../db/query");
+
+const table = "posts";
+//initialize the posts for once from the database
+let posts;
+const load_post = async () => {
+  posts = await read_(table);
+};
+load_post();
+let current_time = () => {
+  return require("moment")().format("YYYY-MM-DD HH:mm:ss");
+};
 
 router.get("/", (req, res) => res.json(posts));
 router.get("/:id", (req, res) => {
@@ -16,15 +27,17 @@ router.post("/", (req, res) => {
   //add new members here
   console.log("Successfully connected to posts api");
   const newPost = {
-    id: posts.length + 1,
+    // id: posts.length + 1,
     title: req.body.title,
     author: req.body.author,
     content: req.body.content,
+    date_created: current_time(),
   };
   if (!newPost.title || !newPost.author || !newPost.content) {
     res.status(400).json({ msg: "Please include a valid message" });
   } else {
-    posts.push(newPost);
+    insert_(table, newPost);
+    posts.push(newPost); //sort of like caching, i dont want to read it over and over again
     res.redirect("http://localhost:3000/");
   }
 });
@@ -44,18 +57,13 @@ router.post("/", (req, res) => {
 //     res.redirect("/");
 //   });
 
-// router.delete("/", (req, res) => {
-//     //add new members here
-//     console.log("Successfully connected to posts api");
-//     const newPost = {
-//       id: posts.length + 1,
-//       name: req.body.name,
-//       author: req.body.author,
-//       content: req.body.content,
-//     };
-//     // we dont need to care about empty data as react
-//     // took care for us
-//     posts.push(newPost);
-//     res.redirect("/");
-//   });
+router.delete("/:id", (req, res) => {
+  //add new members here
+  console.log("Successfully connected to posts api");
+  // we dont need to care about empty data as react
+  // took care for us
+  delete_(table, req.params.id);
+  posts = posts.filter((p) => p.id !== parseInt(req.params.id));
+  res.redirect("/");
+});
 module.exports = router;

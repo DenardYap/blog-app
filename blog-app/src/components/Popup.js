@@ -4,7 +4,6 @@
  * 3) Useeffects to fetch data from the api!
  */
 import { FaTimesCircle } from "react-icons/fa";
-import { IconContext } from "react-icons";
 
 const Popup = ({ trigger, setTrigger }) => {
   return trigger ? (

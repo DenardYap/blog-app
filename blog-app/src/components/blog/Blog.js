@@ -1,11 +1,21 @@
 import Post from "./Post";
 
-const Blog = ({ posts }) => {
+const Blog = ({ posts, onDelete }) => {
   return (
     <div>
-      {posts.map((post) => (
-        <Post title={post.title} author={post.author} content={post.content} />
-      ))}
+      {!!posts.length ? (
+        posts.map((post) => (
+          <Post
+            id={post.id}
+            title={post.title}
+            author={post.author}
+            content={post.content}
+            onDelete={onDelete}
+          />
+        ))
+      ) : (
+        <h1>No posts to show</h1>
+      )}
     </div>
   );
 };

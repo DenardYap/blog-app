@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&family=Montserrat:wght@300&display=swap');
 * {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 36px;
   margin: 0;
   padding: 0;
@@ -9,6 +10,7 @@
   background: radial-gradient(circle closest-corner, #282c3400 80%, #282c34ff)
 } */
 a {
+  font-family: 'Be Vietnam Pro', sans-serif;
   text-decoration: none;
   background-color:#282c34;
   color: #ACC8E5;

@@ -3,7 +3,6 @@ import Blog from "./components/blog/Blog";
 import Add from "./components/Add";
 import Popup from "./components/Popup";
 import { useState, useEffect } from "react";
-import { FaTruckLoading } from "react-icons/fa";
 
 const Body = () => {
   // const addPost = (post) => {
@@ -16,23 +15,34 @@ const Body = () => {
   const [fetched, setFetched] = useState(false);
   const [trigger, setTrigger] = useState(false);
   const [posts, setPosts] = useState({});
-  useEffect(() => {
+  const loader = () => {
     fetch("/api/posts")
       .then((res) => res.json())
       .then((res) => {
         setPosts(res);
-        setFetched(true);
-      })
-      .then(console.log("Successfully fetched data"));
+      });
+  };
+  useEffect(() => {
+    loader();
+    setFetched(true);
+    console.log("Successfully fetched data");
   }, []);
   //error handling
   if (!fetched) return "Loading...";
+  const onDelete = (id) => {
+    fetch(`/api/posts/${id}`, {
+      method: "DELETE",
+    }).then(() => console.log("Post deleted"));
+    console.log(`More Info: \n
+                ID: ${id} \n`);
+    loader();
+  };
 
   return (
     <body className="blog">
       <Add setTrigger={setTrigger} />
       <Popup trigger={trigger} setTrigger={setTrigger} />
-      <Blog posts={posts} />
+      <Blog posts={posts} onDelete={onDelete} />
     </body>
   );
 };
