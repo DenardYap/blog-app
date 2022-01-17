@@ -17,7 +17,7 @@ const Blog = ({ posts, onDelete }) => {
         ))
       ) : (
         <div className="format-box">
-          <IoSadOutline size={200} />
+          <IoSadOutline size={"20%"} />
           <h1>No posts to show</h1>
         </div>
       )}
