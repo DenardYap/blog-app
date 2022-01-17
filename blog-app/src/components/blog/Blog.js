@@ -1,4 +1,5 @@
 import Post from "./Post";
+import { IoSadOutline } from "react-icons/io5";
 
 const Blog = ({ posts, onDelete }) => {
   return (
@@ -6,6 +7,7 @@ const Blog = ({ posts, onDelete }) => {
       {!!posts.length ? (
         posts.map((post) => (
           <Post
+            key={post.id}
             id={post.id}
             title={post.title}
             author={post.author}
@@ -14,7 +16,10 @@ const Blog = ({ posts, onDelete }) => {
           />
         ))
       ) : (
-        <h1>No posts to show</h1>
+        <div className="format-box">
+          <IoSadOutline size={200} />
+          <h1>No posts to show</h1>
+        </div>
       )}
     </div>
   );

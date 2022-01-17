@@ -92,6 +92,23 @@
     font-family: inherit;
 }
 
+.format-box {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #282c34ff;
+    padding: 5% 0 5% 0;
+    color:#ACC8E5;
+    
+}
+
+.format-box h1 {
+
+    text-align: center;
+    font-weight: bold;
+    font-size: 10vw;
+}
 .popup{
     position: fixed;
     top: 0;

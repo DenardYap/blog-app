@@ -26,8 +26,9 @@ router.get("/:id", (req, res) => {
 router.post("/", (req, res) => {
   //add new members here
   console.log("Successfully connected to posts api");
+  console.log(posts);
   const newPost = {
-    // id: posts.length + 1,
+    id: !!posts.length ? posts[posts.length - 1].id + 1 : 1,
     title: req.body.title,
     author: req.body.author,
     content: req.body.content,

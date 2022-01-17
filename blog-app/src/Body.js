@@ -15,17 +15,15 @@ const Body = () => {
   const [fetched, setFetched] = useState(false);
   const [trigger, setTrigger] = useState(false);
   const [posts, setPosts] = useState({});
-  const loader = () => {
+
+  useEffect(() => {
     fetch("/api/posts")
       .then((res) => res.json())
       .then((res) => {
+        setFetched(true);
         setPosts(res);
-      });
-  };
-  useEffect(() => {
-    loader();
-    setFetched(true);
-    console.log("Successfully fetched data");
+      })
+      .then(console.log("Successfully fetched data"));
   }, []);
   //error handling
   if (!fetched) return "Loading...";
@@ -35,15 +33,19 @@ const Body = () => {
     }).then(() => console.log("Post deleted"));
     console.log(`More Info: \n
                 ID: ${id} \n`);
-    loader();
+    setPosts(
+      posts.filter((p) => {
+        return p.id !== id;
+      })
+    );
   };
 
   return (
-    <body className="blog">
+    <div className="blog">
       <Add setTrigger={setTrigger} />
       <Popup trigger={trigger} setTrigger={setTrigger} />
       <Blog posts={posts} onDelete={onDelete} />
-    </body>
+    </div>
   );
 };
 
