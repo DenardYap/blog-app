@@ -1,5 +1,6 @@
 # blog-app
-Blog post app created by Bernard Yap
+Blog post app created by Bernard Yap 
+<br/>
 This is the UI when there's no post yet
 ![no post](nopost.png)
 This is the UI when there's post(s)
