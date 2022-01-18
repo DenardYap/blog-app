@@ -1,3 +1,5 @@
 # blog-app
 Blog post app created by Bernard Yap
-![alt text]("nopost.png")
+![no post](nopost.png)
+![normal](normal.png)
+![adding](add.png)
