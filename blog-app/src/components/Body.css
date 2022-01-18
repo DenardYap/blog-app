@@ -13,6 +13,8 @@
 }
   
 .post {
+    word-wrap: break-word;
+    hyphens: auto;
     text-align:left;
     border: 2px solid #ACC8E5;
     border-radius: 10px;
@@ -22,10 +24,12 @@
     background: #ACC8E5;
     background-color: #ACC8E5;
     color: #112A46;
+    outline: dotted 2px red;
 }
 
 .post p {
     font-size: 90%;
+    outline: dotted 2px red;
 }
 .wrapper {
     display: flex;
