@@ -12,6 +12,7 @@ const Blog = ({ posts, onDelete }) => {
             title={post.title}
             author={post.author}
             content={post.content}
+            date={post.date_created}
             onDelete={onDelete}
           />
         ))
