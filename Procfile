@@ -1,1 +1,1 @@
-web: npm run woo
+web: npm run blog
