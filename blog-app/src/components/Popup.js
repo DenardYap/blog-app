@@ -9,7 +9,10 @@ const Popup = ({ trigger, setTrigger }) => {
   return trigger ? (
     <div className="popup">
       <div className="popup-inner">
-        <form action="http://localhost:3001/api/posts" method="POST">
+        <form
+          action="https://blog-post-app-bernard.herokuapp.com/api/posts"
+          method="POST"
+        >
           <div className="title-box">
             <FaTimesCircle
               className="close-btn"

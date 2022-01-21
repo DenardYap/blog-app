@@ -39,7 +39,7 @@ router.post("/", (req, res) => {
   } else {
     insert_(table, newPost);
     posts.push(newPost); //sort of like caching, i dont want to read it over and over again
-    res.redirect("http://localhost:3000/");
+    res.redirect("https://blog-post-app-bernard.herokuapp.com/");
   }
 });
 
