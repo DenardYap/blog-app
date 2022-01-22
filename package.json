@@ -3,12 +3,10 @@
   "scripts": {
 
     "start": "node server",
-
     "server": "nodemon server",
-
     "blog": "npm start --prefix blog-app",
-
-    "woo": "concurrently \"npm run server\" \"npm run blog\""
+    "woo": "concurrently \"npm run blog\" \"npm run server\" ",
+    "heroku-postbuild": "cd blog-app && npm install && npm run build"
 
   },
 
@@ -25,17 +23,9 @@
 
     "mysql": "^2.18.1",
 
-    "nodemon": "^2.0.15",
+    "nodemon": "^2.0.15"
 
-    "react-router-dom": "^6.2.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-icons": "^4.3.1",
-    "react-scripts": "5.0.0"
-
-  },
-
-  "devDependencies": {
   }
+
 }
 

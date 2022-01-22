@@ -3,6 +3,7 @@ const router = express.Router();
 const path = require("path");
 const { read_, insert_, delete_ } = require("../db/query");
 
+let ori_page = process.env.MAIN_PAGE || "http://localhost:3001/";
 const table = "posts";
 //initialize the posts for once from the database
 let posts;
@@ -39,7 +40,7 @@ router.post("/", (req, res) => {
   } else {
     insert_(table, newPost);
     posts.push(newPost); //sort of like caching, i dont want to read it over and over again
-    res.redirect("https://blog-post-app-bernard.herokuapp.com/");
+    res.redirect(ori_page);
   }
 });
 

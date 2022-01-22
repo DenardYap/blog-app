@@ -1,1 +1,1 @@
-web: npm run blog
+web: npm run server
