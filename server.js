@@ -12,7 +12,8 @@ app.use("/api/posts", require("./api/posts"));
 //   res.sendFile(path.join(__dirname, "notfound.html"));
 // });
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/client/build/index.html"));
+  console.log("lolol");
+  res.sendFile(path.join(__dirname + "/blog-app/build/index.html"));
 });
 const PORT = process.env.PORT || 3001;
 
