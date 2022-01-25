@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const responseTime = require("response-time");
+app.use(responseTime());
 //Body Parser
 app.use(express.static(path.join(__dirname, "blog-app/build")));
 app.use(express.json()); //handle raw json
@@ -12,7 +14,7 @@ app.use("/api/posts", require("./api/posts"));
 //   res.sendFile(path.join(__dirname, "notfound.html"));
 // });
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/blog-app/build/index.html"));
+  res.sendFile(path.join(__dirname, "notfound.html"));
 });
 const PORT = process.env.PORT || 3001;
 

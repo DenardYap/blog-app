@@ -3,16 +3,23 @@
   "scripts": {
 
     "start": "node server",
+
     "server": "nodemon server",
+
     "blog": "npm start --prefix blog-app",
+
     "woo": "concurrently \"npm run blog\" \"npm run server\" ",
+
     "heroku-postbuild": "cd blog-app && npm install && npm run build"
 
   },
 
   "engines": {
+
     "node": "16.13.1"
+
   },
+
   "dependencies": {
 
     "concurrently": "^7.0.0",
@@ -24,6 +31,12 @@
     "mysql": "^2.18.1",
 
     "nodemon": "^2.0.15"
+
+  },
+
+  "devDependencies": {
+
+    "response-time": "^2.3.2"
 
   }
 
