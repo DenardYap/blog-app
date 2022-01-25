@@ -15,10 +15,7 @@ let current_time = () => {
   return require("moment")().format("YYYY-MM-DD HH:mm:ss");
 };
 
-router.get("/", async (req, res) => {
-  posts = await read_(table);
-  res.json(posts);
-});
+router.get("/", (req, res) => res.json(posts));
 router.get("/:id", (req, res) => {
   const found = posts.some((p) => p.id === parseInt(req.params.id));
   if (found) {
