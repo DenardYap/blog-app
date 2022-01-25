@@ -30,15 +30,10 @@
 
     "mysql": "^2.18.1",
 
-    "nodemon": "^2.0.15"
-
-  },
-
-  "devDependencies": {
-
+    "nodemon": "^2.0.15",
     "response-time": "^2.3.2"
 
-  }
+  },
 
 }
 
