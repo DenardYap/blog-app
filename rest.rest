@@ -1,1 +1,4 @@
-GET http://localhost:3001/api/posts/294
+GET https://blog-post-app-bernard.herokuapp.com/api/posts
+
+//1.024 without redis
+//

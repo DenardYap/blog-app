@@ -1,6 +1,4 @@
 const express = require("express");
-const redis = require("redis");
-const { promisify } = require("util");
 const router = express.Router();
 const path = require("path");
 const { read_, insert_, delete_ } = require("../db/query");
@@ -9,24 +7,18 @@ let ori_page = process.env.MAIN_PAGE || "http://localhost:3001/";
 const table = "posts";
 //initialize the posts for once from the database
 let posts;
-// replace this with redis
 const load_post = async () => {
   posts = await read_(table);
 };
-const client = redis.createClient({
-  host: "127.0.0.1",
-  port: 6379,
-});
-
-const GET_ASYNC = promisify(client.get).bind(client);
-const SET_ASYNC = promisify(client.set).bind(client);
-
 load_post();
 let current_time = () => {
   return require("moment")().format("YYYY-MM-DD HH:mm:ss");
 };
 
-router.get("/", (req, res) => res.json(posts));
+router.get("/", async (req, res) => {
+  posts = await read_(table);
+  res.json(posts);
+});
 router.get("/:id", (req, res) => {
   const found = posts.some((p) => p.id === parseInt(req.params.id));
   if (found) {
