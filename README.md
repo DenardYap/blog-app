@@ -1,4 +1,5 @@
 # blog-app
+https://blog-post-app-bernard.herokuapp.com/
 Blog post app created by Bernard Yap 
 <br/>
 
