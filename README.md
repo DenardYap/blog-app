@@ -1,5 +1,5 @@
 # blog-app
-https://blog-post-app-bernard.herokuapp.com/ (note Heroku goes afk for free tier, so it might takes some time to load the website)
+https://blog-post-app-bernard.herokuapp.com/ (note Heroku goes afk for free tier, so it might take some time to load the website)
 <br/>
 Blog post app created by Bernard Yap 
 <br/>
